@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public RoadManager roadManager;
     public GameState gameState;
     public Vector2Int resolution;
-    public int roadAmount = 3;
-    public float roadWidth = 0.5f;
 
     public enum GameState
     {
@@ -34,6 +33,9 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
 
+        roadManager = RoadManager.Instance;
+        if (roadManager == null)
+            roadManager = gameObject.AddComponent<RoadManager>();
     }
 
     // Functions
@@ -53,12 +55,12 @@ public class GameManager : MonoBehaviour
         if (resolution == Vector2Int.zero)
             GetScreenResolution();
 
-        return new Vector2(resolution.x * xPercetage / 100f, resolution.y * yPercetage / 100f);
+        return new Vector2(resolution.x * xPercetage, resolution.y * yPercetage);
     }
 
-    public float GetRoadPosition(int road)
+    public Vector2 GetWorldFromScreenPosition(float xPercetage, float yPercetage)
     {
-        return road * roadWidth - (roadAmount / 2 * roadWidth);
+        return Camera.main.ScreenToWorldPoint(GetScreenPosition(xPercetage, yPercetage));
     }
 
     public SwipeDirection CheckSwipeDirection(Vector2 startPosition, Vector2 endPosition, float threshold = 0f)
@@ -72,8 +74,8 @@ public class GameManager : MonoBehaviour
         if (vSwipe > hSwipe)
         {
             if (startPosition.y > endPosition.y)
-                return SwipeDirection.Up;
-            return SwipeDirection.Down;
+                return SwipeDirection.Down;
+            return SwipeDirection.Up;
         }
         if (startPosition.x > endPosition.x)
             return SwipeDirection.Left;
