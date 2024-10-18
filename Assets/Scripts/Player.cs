@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
             }
         }
         else if (transform.position.y != homePosition.y)
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, homePosition.y), speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, homePosition.y), attackSpeed / 3 * Time.deltaTime);
 
         if (Input.touchCount == 0)
             return;
@@ -127,6 +127,7 @@ public class Player : MonoBehaviour
         Collider2D[] colliders = new Collider2D[1];
         ContactFilter2D filter = new ContactFilter2D();
         filter.layerMask = LayerMask.GetMask("Obstacle");
+        filter.useLayerMask = true;
         bool result = Physics2D.OverlapCollider(hitbox, filter, colliders) != 0;
         collider = colliders[0];
         return result;
