@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7331636353761292214}
   - component: {fileID: 8151402500718219705}
-  - component: {fileID: 8073331456609785863}
-  m_Layer: 6
-  m_Name: Box
+  - component: {fileID: 884028822299259324}
+  m_Layer: 0
+  m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0f2271ddd4c610a4d92dff202681fd17, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 21b8441e32f74d5409c6d0a4d6d9ab18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8073331456609785863
+--- !u!114 &884028822299259324
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,14 +94,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 929625039655501366}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb230821857e51140909a49e04046c25, type: 3}
+  m_Script: {fileID: 11500000, guid: ebe55b0bb12af8346bf1b22bc008292e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hitbox: {fileID: 0}
-  breakable: 1
+  breakable: 0
   currentRoad: 0
   roadPosition: 0
   speed: 3
   color:
     serializedVersion: 2
-    rgba: 4283142848
+    rgba: 4283292671

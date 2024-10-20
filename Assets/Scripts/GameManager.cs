@@ -3,8 +3,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public RoadManager roadManager;
+    public GuiManager guiManager;
     public GameState gameState;
     public Vector2Int resolution;
+    public float score;
 
     public enum GameState
     {
@@ -36,6 +38,10 @@ public class GameManager : MonoBehaviour
         roadManager = RoadManager.Instance;
         if (roadManager == null)
             roadManager = gameObject.AddComponent<RoadManager>();
+
+        guiManager = GuiManager.Instance;
+        if (guiManager == null)
+            guiManager = gameObject.AddComponent<GuiManager>();
     }
 
     // Functions
@@ -80,5 +86,10 @@ public class GameManager : MonoBehaviour
         if (startPosition.x > endPosition.x)
             return SwipeDirection.Left;
         return SwipeDirection.Right;
+    }
+
+    public void GameOver()
+    {
+        gameState = GameState.MainMenu;
     }
 }
