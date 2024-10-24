@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public RoadManager roadManager;
     public GuiManager guiManager;
+    public Player player;
     public GameState gameState;
     public Vector2Int resolution;
     public float score;
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
         if (guiManager == null)
             guiManager = gameObject.AddComponent<GuiManager>();
 
+        player = GameObject.Find("Player").GetComponent<Player>();
 
         Time.timeScale = 1;
         Application.targetFrameRate = 60;

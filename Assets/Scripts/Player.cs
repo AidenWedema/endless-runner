@@ -135,4 +135,6 @@ public class Player : MonoBehaviour
         collider = colliders[0];
         return result;
     }
+
+    public float Speed { get { return speed; }}
 }
