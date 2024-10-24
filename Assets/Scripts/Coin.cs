@@ -22,7 +22,7 @@ public class Coin : Obstacle
 
         if (TouchingPlayer())
         {
-            GameManager.Instance.score++;
+            GameManager.Instance.score += 100;
             Die();
         }
     }

@@ -31,6 +31,9 @@ public class Player : MonoBehaviour
 
         iTimer -= Time.deltaTime;
 
+        if (Time.frameCount % (Application.targetFrameRate / 10) == 0)
+            GameManager.Instance.score++;
+
         if (transform.position.x != roadPosition)
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(roadPosition, transform.position.y), speed * Time.deltaTime);
 
