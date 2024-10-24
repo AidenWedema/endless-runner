@@ -38,8 +38,6 @@ public class GameManager : MonoBehaviour
         roadManager = RoadManager.Instance;
         if (roadManager == null)
             roadManager = gameObject.AddComponent<RoadManager>();
-<<<<<<< Updated upstream
-=======
 
         guiManager = GuiManager.Instance;
         if (guiManager == null)
@@ -49,7 +47,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         Application.targetFrameRate = 60;
         QualitySettings.vSyncCount = 1;
->>>>>>> Stashed changes
     }
 
     // Functions
